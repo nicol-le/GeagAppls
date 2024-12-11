@@ -1,117 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Pragas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding-top: 60px;
+        }
+
+        header {
+            width: 100%;
+            height: 60px;
+            background-color: #003399;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        header img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .main-content {
+            margin-top: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .app-container {
+            max-width: 400px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input, textarea, select, button {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #003399;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #0055cc;
+        }
+
+        .visualizacao-dados {
+            margin-top: 20px;
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #003399;
+            color: white;
+        }
+
+        .categoria-conteudo,
+        #ajudaSection {
+            display: none;
+        }
+
+        .mostrar {
+            display: block;
+        }
+    </style>
+</head>
 <body>
-    <header>
-        <img src="Design sem nome (20).png" alt="Logo"> <!-- Imagem da logo, caso tenha -->
+    <header></header>
+   
         <h1>GEAG - UFSCAR</h1>
     </header>
-    
 
     <div class="main-content">
         <div class="app-container">
-            <header>
+            <section>
                 <h1>Registro de Pragas</h1>
-            </header>
-            
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Registro de Pragas</title>
-                    <link rel="stylesheet" href="styles.css"> <!-- Certifique-se de que o arquivo CSS esteja linkado corretamente -->
-                </head>
-                <body>
-                    
-                
-                    <div class="main-content">
-                        <div class="app-container">
-                            <header>
-                                <h1>Registro de Pragas</h1>
-                            </header>
-                            <form id="pragaForm">
-                                <h1>Registro de Pragas</h1>
-                                <div class="form-group">
-                                    <label for="nomePragueiro">Nome do Pragueiro:</label>
-                                    <input type="text" id="nomePragueiro" placeholder="Digite seu nome">
-                                </div>
-                                <div class="form-group">
-                                    <label for="talhao">Talhão:</label>
-                                    <select id="talhao">
-                                        <option value="P3">P3</option>
-                                        <option value="S2">S2</option>
-                                        <option value="S4-1">S4-1</option>
-                                        <option value="S4-2">S4-2</option>
-                                        <option value="P1-B">P1-B</option>
-                                        <option value="P1-A">P1-A</option>
-                                        <option value="S5">S5</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="numeroPlanta">Número da Planta:</label>
-                                    <input type="number" id="numeroPlanta" readonly>
-                                    <button type="button" id="adicionarPlanta">Adicionar Planta</button>
-                                </div>
-                                <div class="form-group">
-                                    <label for="planta">Praga:</label>
-                                    <select id="planta">
-                                        <option value="CIG">CIG</option>
-                                        <option value="TRIP">TRIP</option>
-                                        <option value="PEF">PEF</option>
-                                        <option value="PG">PG</option>
-                                        <option value="PGA">PGA</option>
-                                        <option value="NFMB">NFMB</option>
-                                        <option value="MA">MA</option>
-                                        <option value="LG">LG</option>
-                                        <option value="MBA">MBA</option>
-                                        <option value="Desfolha F(%)">Desfolha F(%)</option>
-                                        <option value="Desfolha G(%)">Desfolha G(%)</option>
-                                        <option value="Desfolha L(%)">Desfolha L(%)</option>
-                                        <option value="Desfolha V(%)">Desfolha V(%)</option>
-                                    </select>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="quantidade">Quantidade:</label>
-                                    <input type="number" id="quantidade" placeholder="Digite a quantidade">
-                                </div>
-                                <div class="form-group">
-                                    <label for="observacoes">Observações:</label>
-                                    <textarea id="observacoes" placeholder="Detalhes sobre a planta ou praga"></textarea>
-                                </div>
-                    
-                                <button type="button" id="adicionarPraga">Adicionar Praga</button>
-                            </form>
-                            <button id="baixarExcel">Baixar Excel</button>
-                            <a href="ajuda.html">
-                                <button id="botaoAjuda" >❓ Ajuda</button>  
-                            </a>
-                        </div>
-                        <div class="visualizacao-dados">
-                            <h2>Dados Registrados</h2>
-                            <button id="btnExcliuirtudo"> Excluir todos os dados </button>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Talhão</th>
-                                        <th>Planta</th>
-                                        <th>Pragueiro</th>
-                                        <th>Nome</th>
-                                        <th>Quantidade</th>
-                                        <th>Observações</th>
-                                    </tr>
-                                </thead>
-                                
-                                <tbody id="tabelaDados">
-                                   
-                                </tbody>
-                            </table>
-                            
-                        </div>
-                        
-                    </div>
-                
-               
+            </section>
+            <form id="pragaForm">
+                <div class="form-group">
+                    <label for="nomePragueiro">Nome do Pragueiro:</label>
+                    <input type="text" id="nomePragueiro" placeholder="Digite seu nome">
+                </div>
+                <div class="form-group">
+                    <label for="talhao">Talhão:</label>
+                    <select id="talhao">
+                        <option value="P3">P3</option>
+                        <option value="S2">S2</option>
+                        <option value="S4-1">S4-1</option>
+                        <option value="S4-2">S4-2</option>
+                        <option value="P1-B">P1-B</option>
+                        <option value="P1-A">P1-A</option>
+                        <option value="S5">S5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="numeroPlanta">Número da Planta:</label>
+                    <input type="number" id="numeroPlanta" readonly>
+                    <button type="button" id="adicionarPlanta">Adicionar Planta</button>
+                </div>
+                <div class="form-group">
+                    <label for="nomePraga">Praga:</label>
+                    <select id="nomePraga">
+                        <option value="CIG">CIG</option>
+                        <option value="TRIP">TRIP</option>
+                        <option value="PEF">PEF</option>
+                        <option value="PG">PG</option>
+                        <option value="PGA">PGA</option>
+                        <option value="NFMB">NFMB</option>
+                        <option value="MA">MA</option>
+                        <option value="LG">LG</option>
+                        <option value="MBA">MBA</option>
+                        <option value="Desfolha F(%)">Desfolha F(%)</option>
+                        <option value="Desfolha G(%)">Desfolha G(%)</option>
+                        <option value="Desfolha L(%)">Desfolha L(%)</option>
+                        <option value="Desfolha V(%)">Desfolha V(%)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quantidade">Quantidade:</label>
+                    <input type="number" id="quantidade" placeholder="Digite a quantidade">
+                </div>
+                <div class="form-group">
+                    <label for="observacoes">Observações:</label>
+                    <textarea id="observacoes" placeholder="Detalhes sobre a planta ou praga"></textarea>
+                </div>
+                <button type="button" id="adicionarPraga">Adicionar Praga</button>
+            </form>
+            <button id="baixarExcel">Baixar Excel</button>
+        
+        </div>
+        <div class="visualizacao-dados">
+            <h2>Dados Registrados</h2>
+            <button id="btnExcliuirtudo">Excluir todos os dados</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Talhão</th>
+                        <th>Planta</th>
+                        <th>Pragueiro</th>
+                        <th>Nome</th>
+                        <th>Quantidade</th>
+                        <th>Observações</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelaDados"></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="ajuda" id="ajudaSection">
+        <h2>Ajuda: Categorias de Pragas</h2>
+        <div class="categoria">
+            <button class="categoria-titulo">
+                Desfolha <span class="seta">▼</span>
+            </button>
+            <div class="categoria-conteudo">
+                <div class="praga">
+                    <img src="Desfolha_1.jpg" alt="Coleoptera">
+                    <p>Besouros, carunchos, gorgulhos, joaninhas.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let nomePragueiro = localStorage.getItem("nomePragueiro") || "";
+            let numeroPlanta = parseInt(localStorage.getItem("numeroPlanta")) || 1;
+            let talhaoSelecionado = localStorage.getItem("talhaoSelecionado") || "P3";
+            let dadosPragas = JSON.parse(localStorage.getItem("dadosPragas")) || [];
+
+            const nomePragueiroInput = document.getElementById('nomePragueiro');
+            const talhaoSelect = document.getElementById('talhao');
+            const numeroPlantaInput = document.getElementById('numeroPlanta');
+            const adicionarPlantaBtn = document.getElementById('adicionarPlanta');
+            const adicionarPragaBtn = document.getElementById('adicionarPraga');
+            const tabelaDados = document.getElementById('tabelaDados');
+            const botaoExcluirTodos = document.getElementById('btnExcliuirtudo');
+            const baixarExcelBtn = document.getElementById('baixarExcel');
+
+            nomePragueiroInput.value = nomePragueiro;
+            numeroPlantaInput.value = numeroPlanta;
+            talhaoSelect.value = talhaoSelecionado;
+
+            function atualizarTabela() {
+                tabelaDados.innerHTML = "";
+                dadosPragas.forEach((registro, index) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${registro.Talhao}</td>
+                        <td>${registro.Planta}</td>
+                        <td>${registro.Pragueiro}</td>
+                        <td>${registro.Nome}</td>
+                        <td>${registro.Quantidade}</td>
+                        <td>${registro.Observacoes}</td>
+                    `;
+                    tabelaDados.appendChild(row);
+                });
+                localStorage.setItem("dadosPragas", JSON.stringify(dadosPragas));
+            }
+
+            function baixarExcel() {
+                const workbook = XLSX.utils.book_new();
+                const worksheet = XLSX.utils.json_to_sheet(dadosPragas);
+                XLSX.utils.book_append_sheet(workbook, worksheet, "Dados");
+                XLSX.writeFile(workbook, "dados_pragas.xlsx");
+            }
+
+            adicionarPlantaBtn.addEventListener('click', () => {
+                numeroPlanta++;
+                numeroPlantaInput.value = numeroPlanta;
+                localStorage.setItem("numeroPlanta", numeroPlanta);
+            });
+
+            adicionarPragaBtn.addEventListener('click', () => {
+                const registro = {
+                    Talhao: talhaoSelect.value,
+                    Planta: numeroPlanta,
+                    Pragueiro: nomePragueiroInput.value,
+                    Nome: document.getElementById('nomePraga').value,
+                    Quantidade: document.getElementById('quantidade').value,
+                    Observacoes: document.getElementById('observacoes').value
+                };
+                dadosPragas.push(registro);
+                atualizarTabela();
+            });
+
+            botaoExcluirTodos.addEventListener('click', () => {
+                dadosPragas = [];
+                atualizarTabela();
+            });
+
+            baixarExcelBtn.addEventListener('click', baixarExcel);
+
+            atualizarTabela();
+        });
+        const CACHE_NAME = "registro-pragas-cache-v1";
+const urlsToCache = [
+  "/",
+  "/index.html", // Certifique-se de ajustar o caminho do arquivo HTML principal
+  "/styles.css", // Inclua todos os arquivos CSS e JS
+  "/script.js",
+  "/Design sem nome (20).png" // Outras imagens, ícones, etc.
+ 
+    ]
+
+// Instalando o Service Worker
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      console.log("Arquivos em cache");
+      return cache.addAll(urlsToCache);
+    })
+  );
+});
+
+// Interceptando requisições
+self.addEventListener("fetch", (event) => {
+  event.respondWith(
+    caches.match(event.request).then((response) => {
+      return response || fetch(event.request);
+    })
+  );
+});
+
+// Atualizando o Service Worker
+self.addEventListener("activate", (event) => {
+  const cacheWhitelist = [CACHE_NAME];
+  event.waitUntil(
+    caches.keys().then((cacheNames) =>
+      Promise.all(
+        cacheNames.map((cacheName) => {
+          if (!cacheWhitelist.includes(cacheName)) {
+            return caches.delete(cacheName);
+          }
+        })
+      )
+    )
+  );
+});
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then((registration) => {
+        console.log('Service Worker registrado:', registration);
+      })
+      .catch((error) => {
+        console.log('Erro ao registrar o Service Worker:', error);
+      });
+  });
+}
 
 
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-                    <script src="script.js"></script>
-                    
-                </body>
-                </html>
-                               
+    </script>
+</body>
+</html>
